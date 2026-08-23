@@ -1,9 +1,5 @@
 import { contatos, listarUsuarios, mostrarConversa } from "./contatos.js";
 
-// listarUsuarios();
-// contatos(0);  
-// mostrarConversa(2, 2);
-
 const elemento = {
   lista_contatos: document.querySelector(".container-mensagens"),
   perfil: document.querySelector(".perfil-usuario"),
@@ -12,7 +8,7 @@ const elemento = {
   containerMensagens: document.querySelector(".grid-msg"),
 };
 
-function criarContatos(idContato,nome, hora, previa, naolidas) {
+function criarContatos(idContato, nome, hora, previa, naolidas) {
   // criação dos elementos do card contatos
   const cardContato = document.createElement("div");
   const fotoContato = document.createElement("img");
@@ -21,7 +17,6 @@ function criarContatos(idContato,nome, hora, previa, naolidas) {
   const previaMsg = document.createElement("p");
   const msgNaoLidas = document.createElement("p");
 
-  //   define quais calsses CSS serão aplicadas para estilizar o css
   cardContato.className = "card-mensagem";
   fotoContato.className = "foto-contato";
   nomeContato.className = "nome-contato";
@@ -29,8 +24,7 @@ function criarContatos(idContato,nome, hora, previa, naolidas) {
   previaMsg.className = "previa-mensagem";
   msgNaoLidas.className = "bola-mensagem";
 
-  //   preenche os dados que serão recebidos como parametro função
-fotoContato.src = `https://i.pravatar.cc/150?img=${idContato + 1}`
+  fotoContato.src = `https://i.pravatar.cc/150?img=${idContato + 1}`;
   nomeContato.innerText = nome;
   horaMsg.innerText = hora;
   previaMsg.innerText = previa;
@@ -43,31 +37,37 @@ fotoContato.src = `https://i.pravatar.cc/150?img=${idContato + 1}`
   elemento.lista_contatos.append(cardContato);
 
   cardContato.addEventListener("click", () => {
-  mostrarConversa(0, idContato); 
-});
-
+    mostrarConversa(0, idContato);
+  });
 }
 
-contatos(0).forEach((element, index) => {
-  const mensagensRecebidas = element.messages.filter(
-    (msg) => msg.sender !== "me"
-  ).length;
+function renderizarListaContatos(idUsuario) {
+  elemento.lista_contatos.innerHTML = ""; // limpa a lista antes de recriar
 
-  criarContatos(
-    index,
-    element.name,
-    element.messages.at(-1).time,
-    element.messages.at(-1).content,
-    mensagensRecebidas
-  );
-});
+  contatos(idUsuario).forEach((element, index) => {
+    const mensagensRecebidas = element.messages.filter(
+      (msg) => msg.sender !== "me"
+    ).length;
+
+    criarContatos(
+      index,
+      element.name,
+      element.messages.at(-1).time,
+      element.messages.at(-1).content,
+      mensagensRecebidas
+    );
+  });
+}
+
+renderizarListaContatos(0);
 mostrarConversa(0, 0);
-// apaecer e desaparacerer perfil
-function mostarPerfil(){
-  elemento.foto_perfil.addEventListener('click', (evento) =>{
+
+// aparecer e desaparecer perfil
+function mostarPerfil() {
+  elemento.foto_perfil.addEventListener("click", (evento) => {
     evento.preventDefault();
-    elemento.mensagems_perfil.classList.toggle("ocultar")
-    elemento.perfil.classList.toggle("ocultar")
-  })
+    elemento.mensagems_perfil.classList.toggle("ocultar");
+    elemento.perfil.classList.toggle("ocultar");
+  });
 }
-mostarPerfil()
+mostarPerfil();

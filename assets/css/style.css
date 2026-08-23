@@ -364,3 +364,46 @@ main {
 .nome-usuario, .recado-usuario, .numero-usuario > p{
   font-size: 20px;
 }
+
+.escolha_perfil {
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.titulo-escolha-perfil {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.container_perfis_secundarios {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card-perfil-secundario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.avatar-perfil-secundario {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.card-perfil-secundario:hover .avatar-perfil-secundario {
+  border-color: #ccc;
+}
+
+.nome-perfil-secundario {
+  font-size: 13px;
+  text-align: center;
+}

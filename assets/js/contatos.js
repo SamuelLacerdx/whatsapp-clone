@@ -624,10 +624,6 @@ export function contatos(idUsuario) {
   return usuarios["whats-users"][idUsuario].contacts;
 }
 
-// export function mostraContato() {
-//   console.table(usuarios["whats-users"][idUsuario].contacts[0]);
-// }
-
 export function mostrarConversa(idUsuario, idContato) {
   const listaContatos = contatos(idUsuario);
   const contato = listaContatos[idContato];
@@ -637,7 +633,6 @@ export function mostrarConversa(idUsuario, idContato) {
   document.querySelector(".nome-conversa h2").innerText = contato.name;
 
   const containerConversa = document.querySelector(".grid-msg");
-
   containerConversa.innerHTML = "";
 
   contato.messages.forEach((msg) => {
@@ -653,12 +648,7 @@ export function mostrarConversa(idUsuario, idContato) {
     horario.innerText = msg.time;
     horario.className = "horario-msg";
 
-    balao.append(pingelo,texto, horario);
+    balao.append(pingelo, texto, horario);
     containerConversa.append(balao);
   });
 }
-
-function teste() {
-  console.table(usuarios["whats-users"][0].contacts);
-}
-teste();
