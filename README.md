@@ -8,7 +8,6 @@ Um clone da interface do WhatsApp com funcionalidade de troca de perfil, desenvo
 
 - Interface inspirada no layout do WhatsApp Web
 - Troca de perfil do usuário
-- Layout responsivo construído com CSS Grid
 
 ## 🛠️ Tecnologias utilizadas
 
