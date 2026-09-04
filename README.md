@@ -33,7 +33,6 @@ Um clone da interface do WhatsApp com funcionalidade de troca de perfil, desenvo
 ```
 projeto-grid/
 ├── assets/       # Imagens, ícones e demais recursos estáticos
-├── .vscode/      # Configurações do editor
 └── index.html    # Página principal da aplicação
 ```
 
